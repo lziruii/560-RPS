@@ -1,18 +1,18 @@
 import random  
 
-def g_u_ch():
-    u_c = input("Choose (r, p, or s): ").lower()
-    return u_c
+def generate_user_choice():
+    user_choice = input("Choose (r, p, or s): ").lower()
+    return user_choice
 
-def g_c_ch():
+def generate_computer_choice():
     return random.choice(["r", "p", "s"])
 
-def det_win(u_c, c_c):
-    if u_c == c_c:
+def det_win(user_choice, computer_choice):
+    if user_choice == computer_choice:
         return "U tied!"
-    elif (u_c == "r" and c_c == "s") or \
-         (u_c == "p" and c_c == "r") or \
-         (u_c == "s" and c_c == "p"):
+    elif (user_choice == "r" and computer_choice == "s") or \
+         (user_choice == "p" and computer_choice == "r") or \
+         (user_choice == "s" and computer_choice == "p"):
         return "U win!"
     else:
         return "U lose!"
@@ -21,13 +21,13 @@ def play_game():
     print("Let's play r, p, s!")
 
     while True:
-        u_c = g_u_ch()  
-        c_c = g_c_ch()  
+        user_choice = generate_user_choice()  
+        computer_choice = generate_computer_choice()  
 
-        print(f"U chose {u_c}.")
-        print(f"C chose {c_c}.")
+        print(f"U chose {user_choice}.")
+        print(f"C chose {computer_choice}.")
 
-        result = det_win(u_c, c_c)  
+        result = det_win(user_choice, computer_choice)  
         print(result)
 
         play_again = input("Play again? (y/n): ").lower()  
